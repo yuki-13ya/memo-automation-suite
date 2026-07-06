@@ -27,10 +27,13 @@
 
 `ticktick_list_names.json` は、`memo-workflow` の文脈ラベル辞書から `ticktick-task` のレビューUIへ渡すTickTickリスト名候補です。登録先リストの正本候補として使い、候補外の反映先はレビューUI側で受信箱扱いにします。
 
+ただし、`ticktick_list_names.json` は実運用のリスト名を含むため、Git管理しません。GitHubには匿名化した構造例として `ticktick_list_names.example.json` だけを置きます。
+
 ## 置かないもの
 
 - 認証情報、トークン、`.env` の実値
 - TickTick APIの実行結果や個人情報を含む実データ
+- 実クライアント名、実案件名、実リスト名を含む設定ファイル
 - どちらかのリポジトリで正本管理すべき実装ファイル
 
 ## 命名方針

@@ -12,6 +12,18 @@
 | `ticktick-task/` | TODO候補を受け取り、既存TickTickタスクとの統合判定、人間確認、反映、作業ブロック化を扱う下流プロジェクト |
 | `handoff/` | 2つのプロジェクト間で共有する申し送り、受け入れ条件、修正依頼、移行メモの置き場 |
 
+## GitHubリポジトリ
+
+この親フォルダと2つの子プロジェクトは、それぞれ別のPrivate GitHubリポジトリとして管理します。
+
+| ローカルフォルダ | GitHubリポジトリ | 役割 |
+|---|---|---|
+| `memo-automation-suite/` | `https://github.com/yuki-13ya/memo-automation-suite` | 親プロジェクト、責務分担、読み順、`handoff/` |
+| `memo-workflow/` | `https://github.com/yuki-13ya/memo-workflow` | Discordメモ起点の上流ワークフロー |
+| `ticktick-task/` | `https://github.com/yuki-13ya/ticktick-task` | TickTick側のレビュー、反映準備、作業ブロック関連処理 |
+
+親リポジトリでは `memo-workflow/` と `ticktick-task/` を `.gitignore` で除外し、子プロジェクト本体を親リポジトリへ混ぜません。
+
 ## 基本方針
 
 親フォルダでは、次の内容を扱います。
@@ -27,6 +39,22 @@
 - 個別Phaseの詳細仕様
 - API認証情報、トークン、`.env` の実値
 - 実データや個人情報を含む出力
+
+## 実データとGitHub公開前チェック
+
+GitHubへpushするのは、コード、仕様書、匿名化したサンプル、`.example` ファイルだけです。
+
+実運用で使う `.env`、token、認証キャッシュ、Discord実ログ、Notion/TickTick/Google系の実データ、個人情報、クライアント情報、実案件名入りの設定ファイルは、ローカルに残してGit管理から外します。
+
+実データの形を共有したい場合は、実ファイルをそのまま追跡せず、匿名化した `.example` ファイルを作ります。
+
+例:
+
+| ローカル実データ | Git管理する例 |
+|---|---|
+| `memo-workflow/config/context_aliases.csv` | `memo-workflow/config/context_aliases.example.csv` |
+| `handoff/ticktick_list_names.json` | `handoff/ticktick_list_names.example.json` |
+| `ticktick-task/samples/*.txt` の実案件サンプル | `ticktick-task/samples/*.example.txt` |
 
 ## 責務分担
 
