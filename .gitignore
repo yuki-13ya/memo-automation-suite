@@ -1,0 +1,26 @@
+# Child projects are independent Git repositories.
+memo-workflow/
+ticktick-task/
+
+# Local Codex/runtime state.
+.agents/
+.codex/
+.cache/
+cache/
+tmp/
+temp/
+
+# Secrets and local environment files.
+.env
+.env.*
+!.env.example
+*.token
+*_token.json
+
+# Local operational data.
+handoff/ticktick_list_names.json
+!handoff/ticktick_list_names.example.json
+
+# Generated OS/editor noise.
+Thumbs.db
+Desktop.ini

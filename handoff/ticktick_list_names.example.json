@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "1.0",
+  "source": "memo-workflow/config/context_aliases.example.csv",
+  "sourceField": "ticktick_list_name",
+  "inboxListName": "Inbox",
+  "listNames": [
+    "Client A",
+    "Client B",
+    "Personal"
+  ]
+}
